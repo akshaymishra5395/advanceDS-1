@@ -1,4 +1,4 @@
-class MyQueue:
+class CircularQueue:
   def __init__(self,n=100):
     self.size=n
     self.arr=[None]*n
@@ -7,10 +7,10 @@ class MyQueue:
     
   #Function to push an element x in a queue.
   def push(self, x):
-    if self.front==0 and self.rear==self.size-1 or self.front = self.rear+1 : ##queue is full
-      return 
+    if self.front==0 and self.rear == self.size-1 or self.front == self.rear+1 : ##queue is full
+      return -1
     else:
-      if self.front==-1:
+      if self.front == -1:
         self.front+=1  
       self.rear+=1
       self.arr[self.rear]=x
@@ -32,7 +32,7 @@ class MyQueue:
 
      
 if __name__ == '__main__':
-  sq = MyQueue()
+  sq = CircularQueue()
   Q = int(input())
   while Q > 0:
     query = list(map(int, input().split()))
