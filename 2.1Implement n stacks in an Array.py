@@ -1,12 +1,12 @@
 class MultiStack:
-  def __init__(self,m,n):
+  def __init__(self,n,m=100):
     self.total_size=m
     self.n_stack=n
     self.arr=[None]*m
     self.i_top=[self.B(i) for i in range(1,n)]
     
   def T(self,i):
-    reuturn self.i_top[i-1]
+    return self.i_top[i-1]
     
   def B(self,i):
     return (self.total_size//self.n_stack)*i - 1
@@ -29,7 +29,7 @@ class MultiStack:
 if __name__ == '__main__':
   size=10
   number = 3
-  sq = MultiStack(size,number)
+  sq = MultiStack(number,size)
   Q = int(input())
   while Q > 0:
     query = list(map(int, input().split()))

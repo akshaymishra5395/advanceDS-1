@@ -17,14 +17,14 @@ class TwoStacks:
   
   def pop(self,i):
     if i==1:
-      if top1==-1:
+      if self.top1==-1:
         return -1
       else:
         temp = self.arr[self.top1]
         self.top1-=1
         return temp
     else:
-       if top2==self.size:
+      if self.top2==self.size:
         return -1
       else:
         temp = self.arr[self.top2]
