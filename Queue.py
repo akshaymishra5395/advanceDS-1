@@ -1,19 +1,20 @@
-class MyQueue:
+#2.1 Queue using list 
+class Queue:
   def __init__(self):
     self.li=[]
-  #Function to push an element x in a queue.
+  
   def push(self, x):
     self.li.append(x)
     
-  #Function to pop an element from queue and return that element.
   def pop(self):
     if len(self.li)==0:
+      print("Queue is Empty")
       return -1
     return self.li.pop(0)
      
      
 if __name__ == '__main__':
-  sq = MyQueue()
+  sq = Queue()
   Q = int(input())
   while Q > 0:
     query = list(map(int, input().split()))
