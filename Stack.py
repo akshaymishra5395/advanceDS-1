@@ -4,11 +4,13 @@ class Stack:
 
     def push(self,x):
         self.li.append(x)
-        # print(self.li,x)
 
     def pop(self):
         return self.li.pop()
     
     def isEmpty(self):
         return self.li==[]
+    
+    def printStack(self):
+        print(self.li)
     

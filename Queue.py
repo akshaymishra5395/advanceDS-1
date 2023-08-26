@@ -3,14 +3,21 @@ class Queue:
   def __init__(self):
     self.li=[]
   
-  def push(self, x):
+  def enqueue(self, x):
     self.li.append(x)
     
-  def pop(self):
-    if len(self.li)==0:
+    
+  def dequeue(self):
+    if self.isEmpty():
       print("Queue is Empty")
       return -1
     return self.li.pop(0)
+  
+  def isEmpty(self):
+    return self.li==[]
+  
+  def printQueue(self):
+    print(self.li)
      
      
 if __name__ == '__main__':

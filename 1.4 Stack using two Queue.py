@@ -6,10 +6,14 @@ class Stack:
         self.q2=Queue()
 
     def push(self,x):
-        pass
+        self.q2.enqueue(x)
+        # self.q2.printQueue()
+        while(not self.q1.isEmpty()):
+            self.q2.enqueue(self.q1.dequeue())
+        self.q1,self.q2=self.q2,self.q1
 
     def pop(self):
-        pass
+        return self.q1.dequeue()
         
 if __name__ == '__main__':
     sq = Stack()
