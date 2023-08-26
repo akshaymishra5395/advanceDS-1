@@ -5,10 +5,10 @@ class MyQueue:
         self.s1=Stack()
         self.s2=Stack()
   
-    def enqueue(self,x):
+    def enqueue(self,x):    #O(1)
        self.s1.push(x)
        
-    def dequeue(self):
+    def dequeue(self):      #O(N)
         if not self.s2.isEmpty():
            return self.s2.pop()
         elif not self.s1.isEmpty():
