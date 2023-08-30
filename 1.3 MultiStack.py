@@ -51,15 +51,6 @@ if __name__ == '__main__':
   print(sq.pop(1))
   print(sq.pop(1))
   print(sq.pop(1))
-  
-  # Q = int(input())
-  # while Q > 0:
-  #   query = list(map(int, input().split()))
-  #   if query[1] == 1:
-  #     sq.push(query[0],query[2])
-  #   else:
-  #     print(sq.pop(query[0]), end=' ')
-  #   Q -= 1
   print()
 
 #number of operations
