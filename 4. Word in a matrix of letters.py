@@ -1,4 +1,4 @@
-class GFG:
+class Puzzle:
     def __init__(self):
         self.R = None
         self.C = None
@@ -10,12 +10,12 @@ class GFG:
         if matrix[row][col] != word[0]:
             return False
         
+        word_len = len(word)
         for x, y in self.dir:
 
             rd, cd = row + x, col + y
-            word_len = len(word)
             k=1
-            while k< word_len:
+            while k<word_len:
                 if (rd <0 or rd >= self.R or cd<0 or cd >=self.C):
                     break
                 if (word[k] != matrix[rd][cd]):
@@ -28,6 +28,8 @@ class GFG:
                 
 
             if k == word_len:
+                print("Starting-",row,col)
+                print("Ending-",rd-x,cd-y)
                 return True
             
         return False
@@ -36,21 +38,25 @@ class GFG:
         # Rows and columns in given grid
         self.R = len(matrix)
         self.C = len(matrix[0])
-        
+        status=False
+
         for row in range(self.R):
             for col in range(self.C):
                 
-                # print("origin",row,col)
                 if self.search(matrix, row, col, word):
-                    print("pattern found at " +
-                           str(row) + ', ' + str(col))
-
+                    status=True
+                    # print("Word found")                   # +str(row) + ', ' + str(col))
+        
+        if status:
+            print("Word found")
+        else:
+            print("Word not Found")
 
 if __name__=='__main__':
     matrix = [
             "ASAAY",
             "RSHSL",
             "AMITH"]
-    gfg = GFG()
-    gfg.printPosition(matrix, 'ASH')
+    gfg = Puzzle()
+    gfg.printPosition(matrix, 'ASA')
     print('')
