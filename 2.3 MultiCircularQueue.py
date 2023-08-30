@@ -60,6 +60,7 @@ if __name__ == '__main__':
    q.enqueue(2,66)
    q.enqueue(2,77)
    
+   
    print(q.dequeue(1))
    print(q.dequeue(1))
    print(q.dequeue(2))
