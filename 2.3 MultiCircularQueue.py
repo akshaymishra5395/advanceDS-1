@@ -7,7 +7,6 @@ class MultiCircularQueue:
         self.front = [ x for x in self.bottom]
         self.rear =  [ x for x in self.bottom]
         self.bottom.append(self.total_size-1)
-        print(self.bottom)
         
 
     def B(self,i):
@@ -25,13 +24,13 @@ class MultiCircularQueue:
         else:    
             self.rear[i]+=1
         self.arr[self.rear[i]]=x
-        print(self.arr)
-
+        print(f"Front={self.front[i]},Rear={self.rear[i]},Bottom={self.bottom[i]}")
+        
     def dequeue(self,i):
         i=i-1
         # print(self.front[i],self.rear[i])
         if self.front[i]==self.bottom[i] and self.rear[i]==self.bottom[i]:  ##queue is empty
-            print("Queue "+str(i+1)+" is empty")
+            print("Queue "+str(i+1)+" is Empty")
             return -1
         elif self.front[i]==self.rear[i]:
             temp = self.arr[self.front[i]]
@@ -47,7 +46,7 @@ class MultiCircularQueue:
             temp = self.arr[self.front[i]]
             self.arr[self.front[i]]=None
             self.front[i]+=1
-        print(self.arr)
+        print(f"Front={self.front[i]},Rear={self.rear[i]},Bottom={self.bottom[i]}")
         return temp
      
 if __name__ == '__main__':
@@ -58,12 +57,12 @@ if __name__ == '__main__':
    q.enqueue(1,2)
    q.enqueue(1,3)
    print(q.dequeue(1))
-   q.enqueue(1,1)
-   q.enqueue(1,77)
+   q.enqueue(2,66)
+   q.enqueue(2,77)
    
    print(q.dequeue(1))
    print(q.dequeue(1))
-   print(q.dequeue(1))
+   print(q.dequeue(2))
    print(q.dequeue(1))
    print()
 
