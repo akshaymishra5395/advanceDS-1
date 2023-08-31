@@ -8,9 +8,15 @@ class Stack:
     def pop(self):
         return self.li.pop()
     
+    def top(self):
+        return self.li[-1]
+    
     def isEmpty(self):
         return self.li==[]
     
     def printStack(self):
         print(self.li)
+        
+    def peekStack(self):
+        return self.li
     

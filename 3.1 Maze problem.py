@@ -1,10 +1,11 @@
-class GFG:
+class PathFinder:
     def __init__(self):
         self.R = None
         self.C = None
         self.dir = [[-1, 1], [0, 1], [1, 1],
                     [1, 0],[1,-1],[0,-1 ], [-1, -1],
                     [-1, 0]]
+        self.visited =None
     
     def search(self,matrix,row,col,word):
         if matrix[row][col] != word[0]:
@@ -32,28 +33,52 @@ class GFG:
             
         return False
 
-    def printPosition(self, matrix, word):
+    def findAllPath(self, matrix):
         # Rows and columns in given grid
         self.R = len(matrix)
         self.C = len(matrix[0])
+        self.visited=[[0 for _ in range(self.C)] for _ in range(self.R) ]
+        from Stack import Stack
+        stack = Stack()
+        cordinates=(0,0)
+        direction=0
+        self.visited[0][0]=1 
         
-        for row in range(self.R):
-            for col in range(self.C):
+        stack.push((*cordinates,direction))
+        while(not stack.isEmpty()):
+            (i,j,direction) = stack.pop()
+            while(direction<len(self.dir)):
                 
-                # print("origin",row,col)
-                if self.search(matrix, row, col, word):
-                    print("pattern found at " +
-                           str(row) + ', ' + str(col))
+                x,y=self.dir[direction]
+                g, h = i + x, j + y
+                print((i,j),direction)
+                if (g <0 or g >= self.R or h<0 or h >=self.C):
+                    direction+=1
+                    continue
+                if g==self.R - 1 and h == self.C -1 :
+                    stacklist=[(x[0],x[1])for x in stack.peekStack()]
+                    print(stacklist)
+                    self.visited[g][h]=1
+                    direction+=1
+                
+                elif matrix[g][h] and not self.visited[g][h]:
+                    self.visited[g][h]=1
+                    stack.push((i,j,direction))
+                    i=g;j=h;direction=0
+                else:
+                    direction+=1
+            print("--")
+        print("No path found")
 
 
 if __name__=='__main__':
 
     matrix = [
                 [1, 0, 0, 0],
-                [1, 1, 0, 1],
                 [0, 1, 0, 0],
-                [1, 1, 1, 1]    ]
+                [0, 1, 1, 0],
+                [0, 0, 0, 1]    ]
     
-    gfg = GFG()
-    gfg.printPosition(matrix, 'ASH')
+    pf = PathFinder()
+    pf.findAllPath(matrix)
     print('')
