@@ -5,7 +5,6 @@ class MultiStack:
     self.arr=[None]*m
     self.bottom=[self.B(i) for i in range(self.n_stack)]
     self.top=[ x for x in self.bottom]
-    print(self.top)
     self.bottom.append(self.total_size-1)    
 
   def B(self,i):
@@ -35,20 +34,9 @@ if __name__ == '__main__':
   size=10
   number = 3
   sq = MultiStack(number,size)
-  sq.push(1,1)
-  sq.push(1,2)
-  sq.push(1,3)
-  sq.push(1,4)
+  sq.push(1,10)
   print(sq.pop(1))
-  sq.push(3,1)
-  sq.push(3,2)
-  sq.push(3,3)
-  sq.push(3,4)
   sq.push(3,5)
-  
-  print(sq.pop(3))
-  print(sq.pop(3))
-  print(sq.pop(1))
   print(sq.pop(1))
   print(sq.pop(1))
   print()

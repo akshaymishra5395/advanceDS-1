@@ -56,13 +56,3 @@ if __name__ == '__main__':
   print(sq.pop(1))
   print()
 
-#number of operations
-#stack push(1) element 
-#stack pop(2)  
-# 6   
-# 1 1 2 
-# 1 1 3 
-# 2 1 4 
-# 1 2 
-# 2 2 
-# 2 2
